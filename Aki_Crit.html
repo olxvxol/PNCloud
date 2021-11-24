@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<title>虚拟云图</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<style>
+* {box-sizing: border-box;}
+body {font-family: Arial;margin: 0;}
+.header {padding: 10px;text-align: center;background: #1abc9c;color: white;}
+.header h1 {font-size: 25px;}
+.navbar {overflow: hidden;background-color: #333;}
+.navbar a {float: left;  display: block;  color: white;text-align: center;  padding: 16px 16px;  text-decoration: none;}
+/* 右侧链接*/
+.navbar a.right {float: right;}
+/* 鼠标移动到链接的颜色 */
+.navbar a:hover {background-color: #ddd;color: black;}
+/* 列容器 */
+.row {display: -ms-flexbox; /* IE10 */  display: flex;-ms-flex-wrap: wrap; /* IE10 */  flex-wrap: wrap;}
+/* 创建两个列 */
+.side {-ms-flex: 10%; /* IE10 */  flex: 10%;background-color: #f1f1f1;  padding: 20px;}
+.main {-ms-flex: 90%; /* IE10 */  flex: 90%;background-color: white;  padding: 20px;}
+/* 底部 */
+.footer {padding: 20px;  text-align: center;  background: #ddd;}
+/* 折叠 */
+.dropbtn {background-color: #4CAF50;color: white;padding: 16px;font-size: 16px;border: none;cursor: pointer;}
+.dropdown {position: relative;display: inline-block;}
+.dropdown-content {display: none;position: absolute;right: 0;background-color: #f9f9f9;min-width: 160px;box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);z-index: 1;}
+.dropdown-content a {color: black;padding: 12px 12px;text-decoration: none;display: block;}
+.dropdown-content a:hover {background-color: #f1f1f1;}
+.dropdown:hover .dropdown-content {display: block;}
+.dropdown:hover .dropbtn {background-color: #3e8e41;}
+/* 响应式布局*/
+@media screen and (min-width: 1020px) {.dropdown {display: none;}}
+@media screen and (max-width: 1020px) {.row {flex-direction: row;} .side {display: none;}}
+@media screen and (max-width: 400px) {.navbar a {float: none;  width: 100%;}.dropbtn {padding: 12px;font-size: 12px;}.navbar a {padding: 12px 12px;font-size: 12px;}}
+</style>
+</head>
+
+<body>
+<div class="header">
+  <h1>云图计划</h1>
+</div>
+
+<div class="dropdown" style="float:right;">
+  <button class="dropbtn">索引</button>
+  <div class="dropdown-content">
+  <!--<a href="#">角色图鉴</a>
+  <a href="#">函数图鉴</a>
+  <a href="#">协议图鉴</a>
+  <a href="#">模拟器</a>-->
+  <a href="#">计算器</a>
+  </div>
+</div>
+
+<div class="navbar">
+  <a href="#" class="left">主页</a>
+</div>
+
+<div class="row">
+  <div class="side">
+      <h2>图鉴</h2>
+      <a href="#">角色</a>
+      <img src="./YunTu/Yuntu_Se_Hubble.png" alt="" width="56" height="78"><br>
+      <p>函数</p>
+      <img src="./YunTu/Yuntu_Hs_jjdz_old.png" alt="" width="56" height="56"><br>
+      <p>协议</p>
+      <img src="./YunTu/Yuntu_Xy_anakdtf.png" alt="" width="56" height="56"><br>
+      <h2>工具</h2>
+      <h5>计算器</h5>
+      <h5>模拟器</h5>
+  </div>
+  <div class="main">
+      <h2>计算器</h2>
+      <h5>请从列表中选择一个角色</h5>
+      <select id="mySelect" onchange="myFunction()">
+        <option value="Aki">秋</option>
+        <option value="Hubble">其它</option>
+      </select>
+      <p id="demo">请输入：暴击（基础为10）×2+暴伤(基础为150+被动30)↓</p >
+      <input type="number" id="myInput">
+      <button id="myBtn">计算</button>
+      <p>最佳暴击：<span id="bj"></span>  金词条收益(有bug)：<span id="bjs"></span>%</p >
+      <p>最佳暴伤：<span id="bs"></span>  金词条收益(有bug)：<span id="bss"></span>%</p >
+      <p>伤害期望：<span id="sh"></span></p >
+      <br>
+  </div>
+</div>
+</body>
+
+<div class="footer">
+  <h2>  </h2>
+</div>
+
+<script>
+function myFunction() {
+  var x = document.getElementById("mySelect").value;
+  if (x === "Aki") {
+    document.getElementById("demo").innerHTML = "请输入：暴击×2+暴伤(包括被动30)↓ ";
+  } else {document.getElementById("demo").innerHTML = "请输入：暴击×2+暴伤↓ ";}
+}
+
+document.getElementById("myBtn").onclick = play;
+function play() {
+  var x = document.getElementById("mySelect").value;
+  if (x === "Aki") {
+    var a = document.getElementById("myInput").value;//输入2*暴击+暴伤
+    var b=0;//实际暴击暂存
+    var c=0;//暴伤暂存
+    var d=0;//伤害暂存
+    var e=0;//最高伤害暂存
+    var f=0;//面板暴击记录
+    var g=0;//实际暴击记录
+    //暴击从10到70，每0.1算1次
+    for(var i = 10; i < 70; i=i+0.1) {
+      if(i<40){
+        b=1000000/(-i*i*i+310*i*i-40800*i+2980000);
+        c=(a-2*i)/100;
+        d=b*c+1-b;
+        if(d>e) {e=d; f=i; g=b;}
+      } else {
+        b=10000/(i*i-270*i+27000);
+        c=(a-2*i)/100;
+        d=b*c+1-b;
+        if(d>e) {e=d; f=i; g=b;}
+      }
+    }
+    f=Math.round(f * 100) / 100;//最佳暴击保留两位小数
+    e=Math.round(e * 100) / 100;//伤害期望保留两位小数
+    c=a-2*f;//最佳暴伤
+    //暴击金词条收益
+    var o=f+4.8;
+    if(o<40){
+     o=1000000/(-o*o*o+310*o*o-40800*o+2980000);
+    } else {o=10000/(o*o-270*o+27000);}
+    o=o*c/100+1-o;
+    o=Math.round((o-e)/e * 10000) / 100;
+    var p=g*(c+9.6)/100+1-g;//暴伤金词条收益
+    p=Math.round((p-e)/e * 10000) / 100;
+    document.getElementById("bj").innerHTML = f;
+    document.getElementById("bs").innerHTML = c;
+    document.getElementById("sh").innerHTML = e;
+    document.getElementById("bjs").innerHTML = o;
+    document.getElementById("bss").innerHTML = p;
+  } else {
+    var a = document.getElementById("myInput").value;//输入2*暴击+暴伤
+    var b=0;//暴伤暂存
+    var c=0;//伤害暂存
+    var d=0;//最高伤害暂存
+    var e=0;//面板暴击记录
+    var f=0;//暴伤记录
+    for(var i = 0; i <= 100; i=i+0.1) {
+      b=a-2*i;
+      c=i*b/10000+1-i/100;
+      if(c>d) {d=c; e=i; f=b;}
+    }
+    d=Math.round(d * 100) / 100;//伤害保留两位小数
+    e=Math.round(e * 100) / 100;//暴击保留两位小数
+    f=Math.round(f * 100) / 100;//暴伤保留两位小数
+    var o=(e+4.8)*f/10000+1-(e+4.8)/100;//暴击金词条收益
+    o=Math.round((o-d)/d * 10000) / 100;
+    var p=e*(f+9.6)/10000+1-e/100;//暴伤金词条收益
+    p=Math.round((p-d)/d * 10000) / 100;
+    document.getElementById("bj").innerHTML = e;
+    document.getElementById("bs").innerHTML = f;
+    document.getElementById("sh").innerHTML = d;
+    document.getElementById("bjs").innerHTML = o;
+    document.getElementById("bss").innerHTML = p;
+  }
+  return a;
+}
+</script>
+
+</html>

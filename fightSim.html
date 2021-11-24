@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<title>虚拟云图</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+<style>
+  * {box-sizing: border-box;}
+  body {font-family: Arial;margin: 0;}
+
+  .header {padding: 10px;text-align: center;background: #ffffff00;color: rgb(66, 66, 66);}
+  .header h1 {font-size: 20px;}
+
+  .navbar {overflow: hidden;background-color: rgb(233, 233, 233);}
+  .navbar a {float: left; background-color: #ddd; display: block;  color: black;text-align: center;  padding: 16px 16px;  text-decoration: none;}
+  .navbar a:hover {background-color: rgb(66, 66, 66);color: white;}
+
+  .row {display: -ms-flexbox; display: flex;-ms-flex-wrap: wrap; flex-wrap: wrap;}
+  .side {-ms-flex: 10px; flex: 10px;background-color: #f1f1f1;  padding: 10px;}
+  .main {-ms-flex: 90%; flex: 90%;background-color: white;  padding: 20px;}
+  .footer {padding: 20px;  text-align: center;  background: #dddddd;}
+
+  .dropbtn {background-color: #dddddd; color: black;padding: 16px;font-size: 16px;border: none;cursor: pointer;}
+  .dropdown {position: relative;display: inline-block;}
+  .dropdown a:hover {background-color: rgb(66, 66, 66);}
+  .dropdown :hover {background-color: rgb(66, 66, 66);color: white;}
+  .dropdown:hover{background-color: rgb(66, 66, 66);}
+
+  .dropdown-content {display: none;position: absolute;right: 0;background-color: #ffffff;min-width: 160px;box-shadow: 0px 8px 16px 0px rgb(233, 233, 233);z-index: 1;}
+  .dropdown-content a {background-color: #ffffff;color: black; padding: 12px 12px;text-decoration: none;display: block;}
+  .dropdown-content a:hover {background-color: #dddddd;color: black;}
+  .dropdown:hover .dropdown-content {display: block;}
+
+  @media screen and (min-width: 1020px) {.dropdown {display: none;}}
+  @media screen and (max-width: 1020px) {.row {flex-direction: row;} .side {display: none;}}
+  @media screen and (max-width: 400px) {.navbar a {min-height:42px;padding: 12px;font-size: 12px;}.dropbtn {min-height:42px; padding: 12px;font-size: 12px;}.dropdown {min-height:42px;}}
+</style>
+</head>
+
+<body>
+<div class="header" style="background: url(./image/6.png); background-size: cover; top: -99; min-height: 60px;">
+  <h1> </h1>
+</div>
+
+<div class="dropdown" style="float:right;">
+  <button class="dropbtn">(￣︶￣)↗</button>
+  <div class="dropdown-content">
+    <a href="effectivenessCalculator.html" style="text-decoration:none;">面板计算</a>
+    <a href="attackSim.html" style="text-decoration:none;">攻击模拟</a>
+    <a href="fightSim.html" style="text-decoration:none;">战斗模拟</a>
+  </div>
+</div>
+
+<div class="navbar">
+  <a href="index.html" class="left">( •̀ ω •́ )✧</a>
+</div>
+
+<div class="row">
+  <div class="side">
+    <a href="effectivenessCalculator.html" style="text-decoration:none;">
+      <p style="color:rgb(66, 66, 66); text-align:center;">面板计算<img src="./image/1.png" alt="" width="77" height="108"></p>
+    </a>
+    <a href="attackSim.html" style="text-decoration:none;">
+      <p style="color:rgb(66, 66, 66); text-align:center;">攻击模拟<img src="./image/2.png" alt="" width="77" height="77"></p>
+    </a>
+    <a href="fightSim.html" style="text-decoration:none;">
+      <p style="color:rgb(66, 66, 66); text-align:center;">战斗模拟<img src="./image/3.png" alt="" width="77" height="77"></p>
+    </a>
+  </div>
+
+  <div class="main">
+    <div style="text-align: center;">
+      <img src="./image/5.png" alt="地图" width="70%">
+    </div>
+  </div>
+</div>
+
+<div class="footer">
+  <h2></h2>
+</div>
+
+</body>
+
+</html>

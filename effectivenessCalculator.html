@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+<title>虚拟云图</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+<style>
+  * {box-sizing: border-box;}
+  body {font-family: Arial;margin: 0;}
+
+  .header {padding: 10px;text-align: center;background: #ffffff00;color: rgb(66, 66, 66);}
+  .header h1 {font-size: 20px;}
+
+  .navbar {overflow: hidden;background-color: rgb(233, 233, 233);}
+  .navbar a {float: left; background-color: #ddd; display: block;  color: black;text-align: center;  padding: 16px 16px;  text-decoration: none;}
+  .navbar a:hover {background-color: rgb(66, 66, 66);color: white;}
+
+  .row {display: -ms-flexbox; display: flex;-ms-flex-wrap: wrap; flex-wrap: wrap;}
+  .side {-ms-flex: 10px; flex: 10px;background-color: #f1f1f1;  padding: 10px;}
+  .main {-ms-flex: 90%; flex: 90%;background-color: white;  padding: 20px;}
+  .footer {padding: 20px;  text-align: center;  background: #dddddd;}
+
+  .dropbtn {background-color: #dddddd; color: black;padding: 16px;font-size: 16px;border: none;cursor: pointer;}
+  .dropdown {position: relative;display: inline-block;}
+  .dropdown a:hover {background-color: rgb(66, 66, 66);}
+  .dropdown :hover {background-color: rgb(66, 66, 66);color: white;}
+  .dropdown:hover{background-color: rgb(66, 66, 66);}
+
+  .dropdown-content {display: none;position: absolute;right: 0;background-color: #ffffff;min-width: 160px;box-shadow: 0px 8px 16px 0px rgb(233, 233, 233);z-index: 1;}
+  .dropdown-content a {background-color: #ffffff;color: black; padding: 12px 12px;text-decoration: none;display: block;}
+  .dropdown-content a:hover {background-color: #dddddd;color: black;}
+  .dropdown:hover .dropdown-content {display: block;}
+
+  @media screen and (min-width: 1020px) {.dropdown {display: none;}}
+  @media screen and (max-width: 1020px) {.row {flex-direction: row;} .side {display: none;}}
+  @media screen and (max-width: 420px) {.navbar a {min-height:42px;padding: 12px;font-size: 12px;}.dropbtn {min-height:42px; padding: 12px;font-size: 12px;}.dropdown {min-height:42px;}}
+</style>
+</head>
+
+<body>
+<div class="header" style="background: url(./image/6.png); background-size: cover; top: -99; min-height: 60px;">
+  <h1> </h1>
+</div>
+
+<div class="dropdown" style="float:right;">
+  <button class="dropbtn">(￣︶￣)↗</button>
+  <div class="dropdown-content">
+    <a href="effectivenessCalculator.html" style="text-decoration:none;">面板计算</a>
+    <a href="attackSim.html" style="text-decoration:none;">攻击模拟</a>
+    <a href="fightSim.html" style="text-decoration:none;">战斗模拟</a>
+  </div>
+</div>
+
+<div class="navbar">
+  <a href="index.html" class="left">( •̀ ω •́ )✧</a>
+</div>
+
+<div class="row">
+  <div class="side">
+    <a href="effectivenessCalculator.html" style="text-decoration:none;">
+      <p style="color:rgb(66, 66, 66); text-align:center;">面板计算<img src="./image/1.png" alt="面板计算" width="77" height="108"></p>
+    </a>
+    <a href="attackSim.html" style="text-decoration:none;">
+      <p style="color:rgb(66, 66, 66); text-align:center;">攻击模拟<img src="./image/2.png" alt="攻击模拟" width="77" height="77"></p>
+    </a>
+    <a href="fightSim.html" style="text-decoration:none;">
+      <p style="color:rgb(66, 66, 66); text-align:center;">战斗模拟<img src="./image/3.png" alt="战斗模拟" width="77" height="77"></p>
+    </a>
+  </div>
+
+  <div class="main">
+    <div style="text-align: left;">
+            <div class="main">
+        <div>
+          <h2>电子对抗<button onclick="turn()">翻转行列</button></h2>
+          <table id="table" border="1" frame="hsides" rules="rows">
+            <tr>
+              <td>守卫</td>
+              <td><table><tr><td>.png</td></tr><tr><td>0</td></tr></table></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td><table><tr><td>.png</td></tr><tr><td>0</td></tr></table></td>
+              <td><table><tr><td>.png</td></tr><tr><td>0</td></tr></table></td>
+              <td></td>
+              <td></td>
+              <td><table><tr><td>.png</td></tr><tr><td>0</td></tr></table></td>
+              <td></td>
+              <td><table><tr><td>.png</td></tr><tr><td>0</td></tr></table></td>
+              <td><table><tr><td>.png</td></tr><tr><td>0</td></tr></table></td>
+              <td></td>
+              <td></td>
+              <td><table><tr><td>.png</td></tr><tr><td>0</td></tr></table></td>
+              <td><table><tr><td>.png</td></tr><tr><td>0</td></tr></table></td>
+              <td></td>
+              <td></td>
+              <td><table><tr><td>.png</td></tr><tr><td>0</td></tr></table></td>
+              <td><table><tr><td>.png</td></tr><tr><td>0</td></tr></table></td>
+              <td><table><tr><td>.png</td></tr><tr><td>0</td></tr></table></td>
+            </tr>
+            <tr>
+              <td>射手</td>
+              <td><table><tr><td>.png</td></tr><tr><td>0</td></tr></table></td>
+              <td><table><tr><td>.png</td></tr><tr><td>0</td></tr></table></td>
+              <td><table><tr><td>.png</td></tr><tr><td>0</td></tr></table></td>
+              <td></td>
+              <td><table><tr><td>.png</td></tr><tr><td>0</td></tr></table></td>
+              <td></td>
+              <td></td>
+              <td><table><tr><td>.png</td></tr><tr><td>0</td></tr></table></td>
+              <td></td>
+              <td></td>
+              <td><table><tr><td>.png</td></tr><tr><td>0</td></tr></table></td>
+              <td><table><tr><td>.png</td></tr><tr><td>0</td></tr></table></td>
+              <td><table><tr><td>.png</td></tr><tr><td>0</td></tr></table></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td><table><tr><td>.png</td></tr><tr><td>0</td></tr></table></td>
+              <td><table><tr><td>.png</td></tr><tr><td>0</td></tr></table></td>
+              <td></td>
+              <td></td>
+              <td><table><tr><td>.png</td></tr><tr><td>0</td></tr></table></td>
+            </tr>
+            <tr>
+              <td>战士</td>
+              <td></td>
+              <td></td>
+              <td><table><tr><td>.png</td></tr><tr><td>0</td></tr></table></td>
+              <td><table><tr><td>.png</td></tr><tr><td>0</td></tr></table></td>
+              <td></td>
+              <td></td>
+              <td><table><tr><td>.png</td></tr><tr><td>0</td></tr></table></td>
+              <td></td>
+              <td><table><tr><td>.png</td></tr><tr><td>0</td></tr></table></td>
+              <td><table><tr><td>.png</td></tr><tr><td>0</td></tr></table></td>
+              <td></td>
+              <td></td>
+              <td><table><tr><td>.png</td></tr><tr><td>0</td></tr></table></td>
+              <td><table><tr><td>.png</td></tr><tr><td>0</td></tr></table></td>
+              <td></td>
+              <td></td>
+              <td><table><tr><td>.png</td></tr><tr><td>0</td></tr></table></td>
+              <td></td>
+              <td><table><tr><td>.png</td></tr><tr><td>0</td></tr></table></td>
+              <td><table><tr><td>.png</td></tr><tr><td>0</td></tr></table></td>
+              <td><table><tr><td>.png</td></tr><tr><td>0</td></tr></table></td>
+            </tr>
+            <tr>
+              <td>特种</td>
+              <td><table><tr><td>.png</td></tr><tr><td>0</td></tr></table></td>
+              <td><table><tr><td>.png</td></tr><tr><td>0</td></tr></table></td>
+              <td></td>
+              <td></td>
+              <td><table><tr><td>.png</td></tr><tr><td>0</td></tr></table></td>
+              <td><table><tr><td>.png</td></tr><tr><td>0</td></tr></table></td>
+              <td><table><tr><td>.png</td></tr><tr><td>0</td></tr></table></td>
+              <td></td>
+              <td></td>
+              <td><table><tr><td>.png</td></tr><tr><td>0</td></tr></table></td>
+              <td><table><tr><td>.png</td></tr><tr><td>0</td></tr></table></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td><table><tr><td>.png</td></tr><tr><td>0</td></tr></table></td>
+              <td></td>
+              <td><table><tr><td>.png</td></tr><tr><td>0</td></tr></table></td>
+              <td><table><tr><td>.png</td></tr><tr><td>0</td></tr></table></td>
+              <td></td>
+              <td></td>
+              <td><table><tr><td>.png</td></tr><tr><td>0</td></tr></table></td>
+            </tr>
+            <tr>
+              <td>医师</td>
+              <td></td>
+              <td></td>
+              <td><table><tr><td>.png</td></tr><tr><td>0</td></tr></table></td>
+              <td><table><tr><td>.png</td></tr><tr><td>0</td></tr></table></td>
+              <td></td>
+              <td></td>
+              <td><table><tr><td>.png</td></tr><tr><td>0</td></tr></table></td>
+              <td><table><tr><td>.png</td></tr><tr><td>0</td></tr></table></td>
+              <td><table><tr><td>.png</td></tr><tr><td>0</td></tr></table></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td><table><tr><td>.png</td></tr><tr><td>0</td></tr></table></td>
+              <td><table><tr><td>.png</td></tr><tr><td>0</td></tr></table></td>
+              <td><table><tr><td>.png</td></tr><tr><td>0</td></tr></table></td>
+              <td><table><tr><td>.png</td></tr><tr><td>0</td></tr></table></td>
+              <td></td>
+              <td></td>
+              <td><table><tr><td>.png</td></tr><tr><td>0</td></tr></table></td>
+              <td></td>
+              <td><table><tr><td>.png</td></tr><tr><td>0</td></tr></table></td>
+            </tr>
+          </table>
+          <script>
+            function loadJS( url, callback ){
+              var script = document.createElement('script'),
+              fn = callback || function(){};
+              script.type = 'text/javascript';
+              //IE
+              if(script.readyState){
+                script.onreadystatechange = function(){
+                  if( script.readyState == 'loaded' || script.readyState == 'complete' ){
+                    script.onreadystatechange = null;
+                    fn();
+                  }
+                };
+              }else{
+              //其他浏览器
+              script.onload = function(){
+              fn();
+              };
+            }
+            script.src = url;
+            document.getElementsByTagName('head')[0].appendChild(script);
+            }
+            
+            function turn(){
+              loadJS('http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.8.0.js');
+              $("table").each(function() {
+                var $this = $(this);
+                var newrows = [];
+                $this.find("tr").each(function(){
+                  var i = 0;
+                  $(this).find("td").each(function(){
+                    i++;
+                    if(newrows[i] === undefined) { newrows[i] = $("<tr></tr>"); }
+                    newrows[i].append($(this));
+                  });
+                });
+                $this.find("tr").remove();
+                $.each(newrows, function(){
+                  $this.append(this);
+                });
+              });
+              return false;
+            }
+          </script>
+          <p id="demo"></p>
+          <script>
+            document.getElementById("demo").innerHTML=document.getElementById("table");
+            document.getElementById("table").innerHTML="<tr><td>守卫</td></tr>";
+          </script>
+        </div>
+        <h2>计算器</h2>
+        <h5>请从列表中选择一个角色</h5>
+        <select id="character" title="character" onchange="calculator()">
+          <option value="1001">帕斯卡</option>
+          <option value="1002">安冬妮娜</option>
+          <option value="1003">苏尔</option>
+          <option value="1004">席摩</option>
+          <option value="1005">克罗琦</option>
+        </select>
+        <p></p>
+        <script>
+          function calculator() {
+            var x = document.getElementById("character").value;
+            return x;
+          }
+        </script>  
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="footer">
+  <h2></h2>
+</div>
+
+</body>
+
+</html>
